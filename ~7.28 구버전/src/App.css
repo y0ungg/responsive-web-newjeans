@@ -1,0 +1,23 @@
+
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+    text-decoration: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  *::-webkit-scrollbar {
+    display: none;
+  }
+  
+  div.App {
+    display: flex;
+    flex-direction: column;
+  }
+
+  body {
+    height: 100%;
+    overflow: scroll;
+  }
