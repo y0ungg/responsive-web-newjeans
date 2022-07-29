@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import "../style.css";
 import Nav from "../component/Nav";
-import Youtube from "react-youtube";
-import axios from "axios";
+// import Youtube from "react-youtube";
+import { useNavigate } from "react-router-dom";
 
 const MainArea = styled.div`
   position: relative;
@@ -52,16 +52,16 @@ const Greeting = styled.img`
 `;
 
 const Main = () => {
-  const [isWaiting, setIsWaiting] = useState("waiting");
+  // const [isWaiting, setIsWaiting] = useState("waiting");
   const [waitingOver, setWaitingOver] = useState("");
+  const navigate = useNavigate()
 
   useEffect(() => {
     setTimeout(() => {
       setWaitingOver("waiting");
-      setIsWaiting("");
+      // setIsWaiting("");
+      navigate('/intro');
     }, 5000);
-    axios.get('http://localhost:3001/intro')
-    .then((res) => console.log(res))
   }, []);
 
   return (
@@ -69,14 +69,14 @@ const Main = () => {
       <div className={`${waitingOver} intro`}>
         <div className="words">Wanna New Jeans?</div>
       </div>
-      <MainArea className={isWaiting}>
+      {/* <MainArea className={isWaiting}>
         <TitleContainer>
           <Greeting
             className="greeting"
             src={`${process.env.PUBLIC_URL}/title.png`}
           />
           <Nav />
-        </TitleContainer>
+        </TitleContainer> */}
         {/* <Iframe src='http://www.youtube-nocookie.com/embed/bNucJgetMjE?playlist=bNucJgetMjE&loop=1&autoplay=1&mute=1&start=20&controls=0&modestbranding=1'
           frameBorder='0' allowFullScreen></Iframe> */}
         {/* <Youtube
@@ -84,7 +84,7 @@ const Main = () => {
           iframeClassName="video"
           opts={{ playerVars: { autoplay: 1, mute: 1, controls: 0, loop: 1, start:18 } }} //mute 설정 필수
         ></Youtube> */}
-      </MainArea>
+      {/* </MainArea> */}
     </>
   );
 };

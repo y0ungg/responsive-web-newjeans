@@ -20,15 +20,20 @@ server.get('/', (req, res) => {
   res.send('Health Check')
 })
 
-server.get('/intro', async(req, res) => {
-  const result = await axios({
-    method: 'get',
-    url: `https://www.googleapis.com/youtube/v3/playlistItems?part=id&id=bNucJgetMjE&key=${process.env.KEY}`,
-  }
-  )
-  .catch((err) => console.log(err))
-  console.log(result)
-  return res.send('hi')
+//영상 id를 검색해서 해당 1개만 출력되도록 설정
+server.get('/intro', (req, res) => {
+  let result;
+ axios.get(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=bNucJgetMjE&maxResults=1&key=${process.env.KEY}`)
+  .then(res =>  {
+    // const {data} = res;
+    // data.items.forEach(item => {
+    //   console.log(item.snippet.title)
+    //  })
+    result = res.data.items[0].snippet.title
+  })
+  .then(res.send(result))
+  .catch(err =>  console.log(err))
+  // console.log(result)
 })
 
 server.listen(PORT, () => {
