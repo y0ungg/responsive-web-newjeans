@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
+import Youtube from "./Youtube";
 
 const ModalContainer = styled.div`
 position: fixed;
@@ -54,7 +55,7 @@ const CarouselBtn = styled.button`
 
 const Content = (props) => {
     const [mainPhoto, setMainPhoto] = useState(0);
-    const { selectPhoto, selectVideo, selectInsta, setSelectPhoto, setSelectVideo, setSelectInsta } = props;
+    const { youtube, selectPhoto, selectVideo, selectInsta, setSelectPhoto, setSelectVideo, setSelectInsta } = props;
     const photo = ['/photo2.jpeg', '/photo1.jpeg'];
   
     const modalCloseEvent = () => {
@@ -87,16 +88,17 @@ const Content = (props) => {
             </ModalContainer>
           ) : null}
           {selectVideo ? (
-            <iframe
-            className="video"
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/js1CtxSY38I"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            ></iframe>
+            // <iframe
+            // className="video"
+            //   width="560"
+            //   height="315"
+            //   src="https://www.youtube.com/embed/js1CtxSY38I"
+            //   title="YouTube video player"
+            //   frameBorder="0"
+            //   allow="; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            //   allowFullScreen
+            // ></iframe>
+            <Youtube youtube={youtube} />
           ) : null}
         </>
     )

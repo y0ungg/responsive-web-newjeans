@@ -1,92 +1,53 @@
-import { useEffect, useState } from "react";
 import styled from "styled-components";
-import "../style.css";
 import Nav from "../component/Nav";
-// import Youtube from "react-youtube";
-import { useNavigate } from "react-router-dom";
+import { useEffect,useState } from "react";
 
 const MainArea = styled.div`
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  max-width: 100%;
-`;
-
-const Iframe = styled.iframe`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  animation: fadein 7s;
-
-  @keyframes fadein {
-    /* Safari and Chrome */
-    from {
-      opacity: 0.6;
-    }
-    50% {
-      opacity: 0.8;
-    }
-    to {
-      opacity: 1;
-    }
-  }
+position: relative;
+padding-bottom: 56.25%;
+height: 0;
+max-width: 100%;
 `;
 
 const TitleContainer = styled.div`
-  text-align: center;
-  position: relative;
-  color: black;
-  z-index: 1;
-  text-shadow: 1px 1px 3px gray;
+text-align: center;
+position: relative;
+color: black;
+z-index: 1;
+text-shadow: 1px 1px 3px gray;
 `;
 
 const Greeting = styled.img`
-  color: white;
-  margin: 50px 0px 20px 0px;
-  transition: all 1s;
-  width: 40vw;
-  min-width: 20vw;
+color: white;
+margin: 50px 0px 20px 0px;
+transition: all 1s;
+width: 40vw;
+min-width: 20vw;
 `;
 
-const Main = () => {
-  // const [isWaiting, setIsWaiting] = useState("waiting");
-  const [waitingOver, setWaitingOver] = useState("");
-  const navigate = useNavigate()
 
-  useEffect(() => {
-    setTimeout(() => {
-      setWaitingOver("waiting");
-      // setIsWaiting("");
-      navigate('/intro');
-    }, 5000);
-  }, []);
+const Main = ({youtube}) => {
 
-  return (
-    <>
-      <div className={`${waitingOver} intro`}>
-        <div className="words">Wanna New Jeans?</div>
-      </div>
-      {/* <MainArea className={isWaiting}>
+// console.log(process.env.REACT_APP_KEY)
+
+    return (
+        <MainArea>
         <TitleContainer>
           <Greeting
             className="greeting"
             src={`${process.env.PUBLIC_URL}/title.png`}
           />
-          <Nav />
-        </TitleContainer> */}
-        {/* <Iframe src='http://www.youtube-nocookie.com/embed/bNucJgetMjE?playlist=bNucJgetMjE&loop=1&autoplay=1&mute=1&start=20&controls=0&modestbranding=1'
-          frameBorder='0' allowFullScreen></Iframe> */}
+          <Nav youtube={youtube}/>
+        </TitleContainer>
+        {/* <iframe src='https://www.youtube-nocookie.com/embed/bNucJgetMjE?enablejsapi=1&playlist=bNucJgetMjE&loop=1&autoplay=1&mute=1&start=20&controls=0&modestbranding=1&origin=http://localhost:3000'
+          frameBorder='0' sandbox="allow-same-origin allow-scripts" allowFullScreen></iframe> */}
         {/* <Youtube
           videoId="bNucJgetMjE"
           iframeClassName="video"
           opts={{ playerVars: { autoplay: 1, mute: 1, controls: 0, loop: 1, start:18 } }} //mute 설정 필수
         ></Youtube> */}
-      {/* </MainArea> */}
-    </>
-  );
-};
+      </MainArea>
+    )
+}
 
 export default Main;

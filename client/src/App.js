@@ -8,13 +8,13 @@ import Intro from './pages/Intro';
 // 모든 요청에 withCredentials = true로 설정
 axios.defaults.withCredentials = true;
 
-function App() {
+function App({youtube}) {
 
   return (
     <div id="root" className="App">
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/intro" element={<Intro />} />
+        <Route path="/" element={<Main youtube={youtube}/>} />
+        <Route defaults path="/intro" element={<Intro />} />
       </Routes>
       <Footer />
     </div>

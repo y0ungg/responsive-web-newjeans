@@ -33,7 +33,7 @@ const EnterBtn = styled.button`
   }
 `;
 
-const Nav = () => {
+const Nav = ({youtube}) => {
   // const navigate = useNavigate();
   const [selectPhoto, setSelectPhoto] = useState(false);
   const [selectVideo, setSelectVideo] = useState(false);
@@ -74,7 +74,7 @@ const Nav = () => {
           instagram
         </EnterBtn>
       </Wrapper>
-      <Content {...{selectPhoto, selectVideo, selectInsta, setSelectPhoto, setSelectVideo, setSelectInsta}}  />
+      <Content {...{youtube, selectPhoto, selectVideo, selectInsta, setSelectPhoto, setSelectVideo, setSelectInsta}}  />
     </>
   );
 };
