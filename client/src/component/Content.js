@@ -98,7 +98,8 @@ const Content = (props) => {
             //   allow="; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             //   allowFullScreen
             // ></iframe>
-            <Youtube youtube={youtube} />
+            // <Youtube youtube={youtube} />
+            null
           ) : null}
         </>
     )
