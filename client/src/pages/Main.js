@@ -26,16 +26,17 @@ const Greeting = styled.img`
   min-width: 20vw;
 `;
 
-const Main = ({ youtube }) => {
+const Main = () => {
   return (
+    <>
     <MainArea>
       <TitleContainer>
         <Greeting
           className="greeting"
           src={`${process.env.PUBLIC_URL}/title.png`}
         />
-        <Nav youtube={youtube} />
       </TitleContainer>
+      <Nav />
       <ReactPlayer
         className="video"
         url="https://www.youtube.com/watch?v=bNucJgetMjE"
@@ -51,6 +52,7 @@ const Main = ({ youtube }) => {
         }}
       />
     </MainArea>
+    </>
   );
 };
 

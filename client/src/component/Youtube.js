@@ -1,18 +1,55 @@
-import React from "react";
-import axios from 'axios';
+import axios from "axios";
+import { useEffect, useState } from "react";
+import "./youtubeStyle.css";
 
-const Youtube = ({youtube}) => {
-    async function search() {
-        const res = await youtube.get('search', {
-            params: {
-                part: 'snippet'
-            }
-        })
-    }
-}
+//매 렌더링마다 API 데이터 받아오는 대신 더미데이터 사용중
+const { youtubeData } = require('./dummyData')
+
+const URL = `https://www.googleapis.com/youtube/v3/search?`;
+const CHANNEL_ID = "UCMki_UkHb4qSc0qyEcOHHJw";
+const PLAYLIST_ID = `PLNy-PdPlJT7EW4KwMfEOk_58Niq7gm-_0`;
+const opt = {
+  "Content-Type": "application/json",
+  "Access-Control-Allow-Origin": "http://localhost:3000",
+};
+
+const Youtube = (props) => {
+  const { selectVideo, setSelectVideo } = props;
+  // const [youtubeData, setYoutubeData] = useState([]);
+
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `${URL}part=snippet&channelId=${CHANNEL_ID}&order=date&type=video&key=${process.env.REACT_APP_KEY}`,
+  //       null,
+  //       { headers: opt }
+  //     )
+  //     .then((res) => setYoutubeData(res.data.items))
+  //     .catch((err) => {
+  //       Error, err;
+  //     });
+  // }, []);
+
+  return (
+    <>
+      {selectVideo ? (
+        <section className="video--container">
+          {youtubeData.map((video) => {
+            return (
+              <div className="video--wrapper" key={video.etag}>
+                <iframe
+                className="video--frame"
+                  frameBorder={0}
+                  src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                ></iframe>
+                <div className="video--title">{video.snippet.title}</div>
+              </div>
+            );
+          })}
+        </section>
+      ) : null}
+    </>
+  );
+};
 
 export default Youtube;
-
-
-//todo: react-player로 인트로 영상 보기
-//todo: videos 탭 누르면 youtube video  받아오기

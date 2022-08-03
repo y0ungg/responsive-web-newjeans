@@ -3,6 +3,12 @@
 create-react-app으로 만들고 있다가 코드만 뜯어서 `npm init`부터 리팩토링 시작    
 
 ## Youtube 동영상 가져오기
+Youtube 컴포넌트: Youtube API key를 이용한 동영상 가져오기 완료 && 받아온 데이터로 더미데이터를 만들어서 사용하고 있다.  
+
+Footer 컴포넌트: 원하는 css를 구현하기 위해 삭제    
+  
+  TODO: 비디오 목록 css 수정하기, Instagram 피드 받아오기 또는 로그인 구현하기  
+
 
 ## .env 환경변수 설정하기
 `$ npm install -D --save dotenv`

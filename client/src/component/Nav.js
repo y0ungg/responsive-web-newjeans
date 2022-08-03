@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import "../style.css";
 import { useState } from "react";
-import Content from "./Content";
+import Photo from "./Photo";
 import { useNavigate } from "react-router-dom";
+import Youtube from "./Youtube";
 
 const Wrapper = styled.div`
+  position: relative;
   z-index: 1;
   background: none;
   width: 100%;
@@ -33,7 +35,7 @@ const EnterBtn = styled.button`
   }
 `;
 
-const Nav = ({youtube}) => {
+const Nav = () => {
   // const navigate = useNavigate();
   const [selectPhoto, setSelectPhoto] = useState(false);
   const [selectVideo, setSelectVideo] = useState(false);
@@ -50,7 +52,7 @@ const Nav = ({youtube}) => {
       setSelectPhoto(false);
       setSelectInsta(false);
     }
-    if (e.target.value === "Insta" && !selectInsta) {
+    if (e.target.value === "instagram" && !selectInsta) {
       setSelectInsta(true);
       setSelectPhoto(false);
       setSelectVideo(false);
@@ -74,7 +76,8 @@ const Nav = ({youtube}) => {
           instagram
         </EnterBtn>
       </Wrapper>
-      <Content {...{youtube, selectPhoto, selectVideo, selectInsta, setSelectPhoto, setSelectVideo, setSelectInsta}}  />
+      <Photo {...{selectPhoto, setSelectPhoto}}  />
+      <Youtube {...{selectVideo, setSelectVideo}} />
     </>
   );
 };

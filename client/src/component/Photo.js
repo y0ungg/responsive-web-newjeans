@@ -53,9 +53,9 @@ const CarouselBtn = styled.button`
   }
 `
 
-const Content = (props) => {
+const Photo = (props) => {
     const [mainPhoto, setMainPhoto] = useState(0);
-    const { youtube, selectPhoto, selectVideo, selectInsta, setSelectPhoto, setSelectVideo, setSelectInsta } = props;
+    const { selectPhoto, setSelectPhoto } = props;
     const photo = ['/photo2.jpeg', '/photo1.jpeg'];
   
     const modalCloseEvent = () => {
@@ -87,22 +87,8 @@ const Content = (props) => {
               </Carousel>
             </ModalContainer>
           ) : null}
-          {selectVideo ? (
-            // <iframe
-            // className="video"
-            //   width="560"
-            //   height="315"
-            //   src="https://www.youtube.com/embed/js1CtxSY38I"
-            //   title="YouTube video player"
-            //   frameBorder="0"
-            //   allow="; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            //   allowFullScreen
-            // ></iframe>
-            // <Youtube youtube={youtube} />
-            null
-          ) : null}
         </>
     )
 }
 
-export default Content;
+export default Photo;

@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "dotenv": "^16.0.1",
-    "react-youtube": "^9.0.3"
+    "dotenv": "^16.0.1"
   }
 }

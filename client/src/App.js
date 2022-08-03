@@ -1,22 +1,17 @@
 import './index.css';
 import { Routes, Route } from 'react-router-dom';
 import Main from './pages/Main';
-import Footer from './component/Footer';
-import axios from 'axios';
 import Intro from './pages/Intro';
 
-// 모든 요청에 withCredentials = true로 설정
-axios.defaults.withCredentials = true;
-
-function App({youtube}) {
+function App() {
 
   return (
     <div id="root" className="App">
       <Routes>
-        <Route path="/" element={<Main youtube={youtube}/>} />
-        <Route defaults path="/intro" element={<Intro />} />
+        <Route path="/main" element={<Main />} />
+        <Route path="/" element={<Intro />}>
+        </Route>
       </Routes>
-      <Footer />
     </div>
   );
 }
