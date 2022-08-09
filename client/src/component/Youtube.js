@@ -14,7 +14,7 @@ const opt = {
 };
 
 const Youtube = (props) => {
-  const { selectVideo, setSelectVideo } = props;
+  const { selectVideo } = props;
   // const [youtubeData, setYoutubeData] = useState([]);
 
   // useEffect(() => {
@@ -36,7 +36,7 @@ const Youtube = (props) => {
         <section className="video--container">
           {youtubeData.map((video) => {
             return (
-              <div className="video--wrapper" key={video.etag}>
+              <div className="video--wrapper" key={video.id.videoId}>
                 <iframe
                 className="video--frame"
                   frameBorder={0}

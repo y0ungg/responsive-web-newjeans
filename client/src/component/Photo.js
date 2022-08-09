@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
-import Youtube from "./Youtube";
 
 const ModalContainer = styled.div`
 position: fixed;

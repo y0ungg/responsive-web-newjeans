@@ -2,7 +2,6 @@ import styled from "styled-components";
 import "../style.css";
 import { useState } from "react";
 import Photo from "./Photo";
-import { useNavigate } from "react-router-dom";
 import Youtube from "./Youtube";
 
 const Wrapper = styled.div`
@@ -35,8 +34,7 @@ const EnterBtn = styled.button`
   }
 `;
 
-const Nav = () => {
-  // const navigate = useNavigate();
+const Nav = ({setPlay}) => {
   const [selectPhoto, setSelectPhoto] = useState(false);
   const [selectVideo, setSelectVideo] = useState(false);
   const [selectInsta, setSelectInsta] = useState(false);
@@ -46,16 +44,19 @@ const Nav = () => {
       setSelectPhoto(true);
       setSelectVideo(false);
       setSelectInsta(false);
+      setPlay('')
     }
     if (e.target.value === "video" && !selectVideo) {
       setSelectVideo(true);
       setSelectPhoto(false);
       setSelectInsta(false);
+      setPlay('waiting')
     }
     if (e.target.value === "instagram" && !selectInsta) {
       setSelectInsta(true);
       setSelectPhoto(false);
       setSelectVideo(false);
+      setPlay('')
     }
   };
 
@@ -77,7 +78,7 @@ const Nav = () => {
         </EnterBtn>
       </Wrapper>
       <Photo {...{selectPhoto, setSelectPhoto}}  />
-      <Youtube {...{selectVideo, setSelectVideo}} />
+      <Youtube {...{selectVideo}} />
     </>
   );
 };

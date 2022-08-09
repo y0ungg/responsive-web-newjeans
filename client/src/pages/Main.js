@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Nav from "../component/Nav";
 import ReactPlayer from "react-player/lazy";
 import "../style.css";
+import { useState } from "react";
 
 const MainArea = styled.div`
   position: relative;
@@ -27,6 +28,8 @@ const Greeting = styled.img`
 `;
 
 const Main = () => {
+  const [play, setPlay] = useState('');
+
   return (
     <>
     <MainArea>
@@ -36,15 +39,16 @@ const Main = () => {
           src={`${process.env.PUBLIC_URL}/title.png`}
         />
       </TitleContainer>
-      <Nav />
+      <Nav setPlay={setPlay}/>
       <ReactPlayer
-        className="video"
+        className={`video ${play}`}
         url="https://www.youtube.com/watch?v=bNucJgetMjE"
         width="100%"
         height="100%"
         playing
-        muted
         loop
+        muted
+        controls={false}
         config={{
           youtube: {
             playerVars: { controls: 0, start: 18, enablejsapi: 1 },
