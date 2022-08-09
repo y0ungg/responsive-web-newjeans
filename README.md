@@ -2,6 +2,10 @@
 
 create-react-app으로 만들고 있다가 코드만 뜯어서 `npm init`부터 리팩토링 시작    
 
+## Youtube 컴포넌트 css 적용 중
+
+Nav - youtube 선택시 배경 영상 멈추거나 없애는 것으로 변경중
+
 ## Youtube 동영상 가져오기
 Youtube 컴포넌트: Youtube API key를 이용한 동영상 가져오기 완료 && 받아온 데이터로 더미데이터를 만들어서 사용하고 있다.  
 
